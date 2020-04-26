@@ -25,7 +25,8 @@ jobs:
           ls -al ./acl/
           git config --local user.email "am1006@pm.me"
           git config --local user.name "am1006.github.actions"
-          git commit -m "update pac" -a
+          git add .
+          git commit -m "update pac"
 
       - name: push changes
         uses: ad-m/github-push-action@master
