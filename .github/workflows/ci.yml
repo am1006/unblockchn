@@ -16,12 +16,11 @@ jobs:
       - name: setup python
         uses: actions/setup-python@master
 
-      - run: |
+      # Remember: docker的每一步是隔离的，不能把run script单独写出来，会被清理掉。
+      - name: run script & commit files
+        run: |
           pip3 install -r requirements.txt
           python3 unblockchn.py acl
-
-      - name: commit files
-        run: |
           ls -al ./acl/
           git config --local user.email "am1006@pm.me"
           git config --local user.name "am1006.github.actions"
