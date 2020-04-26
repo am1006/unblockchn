@@ -21,8 +21,9 @@ jobs:
         run: |
           pip3 install -r requirements.txt
           python3 unblockchn.py acl
-          ls -al ./acl/
           cd ./acl/
+          touch test.txt
+          ls -al ./acl/
           pwd
           git status
           git config --local user.email "am1006@pm.me"
