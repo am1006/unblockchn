@@ -1,5 +1,6 @@
 name: Update PAC
 on:
+  push:
   schedule:
     - cron: '00 04 * * *'
 
