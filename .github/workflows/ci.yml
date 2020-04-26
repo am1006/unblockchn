@@ -21,9 +21,9 @@ jobs:
         run: |
           pip3 install -r requirements.txt
           python3 unblockchn.py acl --acl
-          mv ./acl/china.acl ./output/china.acl
+          mv ./acl/china.acl ./myacl/china.acl
           echo "This is your current acl files:"
-          ls -al ./output/
+          ls -al ./myacl/
           git config --local user.email "am1006@pm.me"
           git config --local user.name "am1006.github.actions"
           git add .
