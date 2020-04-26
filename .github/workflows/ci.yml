@@ -1,0 +1,31 @@
+name: Update PAC
+on:
+  schedule:
+    - cron: '00 04 * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@master
+        with:
+          ref: pac&acl
+      
+      - name: setup python
+        uses: actions/setup-python@master
+
+      - run: python3 unblockchn.py acl
+
+      - name: commit files
+        run: |
+          git config --local user.email "am1006@pm.me"
+          git config --local user.name "am1006.github.actions"
+          git commit -m "update pac" -a
+
+      - name: push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.ACC_TOKEN }}
+
+
