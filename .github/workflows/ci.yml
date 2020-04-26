@@ -22,6 +22,8 @@ jobs:
           pip3 install -r requirements.txt
           python3 unblockchn.py acl
           cd ./acl/
+          mv pac.txt PAC.txt
+          mv unblockchn.pac.ruleset unblock_pac.ruleset
           touch test.txt
           ls -al 
           pwd
