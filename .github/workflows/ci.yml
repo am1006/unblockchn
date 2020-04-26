@@ -26,7 +26,7 @@ jobs:
           git config --local user.email "am1006@pm.me"
           git config --local user.name "am1006.github.actions"
           git add .
-          git commit -m "update pac"
+          git commit -m "update pac" || echo "nothing to update"
           git log --pretty=oneline
 
       - name: push changes
