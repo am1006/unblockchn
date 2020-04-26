@@ -22,6 +22,8 @@ jobs:
           pip3 install -r requirements.txt
           python3 unblockchn.py acl
           ls -al ./acl/
+          cd ./acl/
+          pwd
           git status
           git config --local user.email "am1006@pm.me"
           git config --local user.name "am1006.github.actions"
