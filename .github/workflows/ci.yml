@@ -32,10 +32,10 @@ jobs:
           git commit -m "update pac" || echo "nothing to update"
           git log --pretty=oneline
 
-      - name: add and commit
-        uses: stefanzweifel/git-auto-commit-action@master
-        with:
-          commit_massage: Update PAC
+          #       - name: add and commit
+          #         uses: stefanzweifel/git-auto-commit-action@master
+          #         with:
+          #           commit_massage: Update PAC
 
       - name: push changes
         uses: ad-m/github-push-action@master
