@@ -20,18 +20,15 @@ jobs:
       - name: run script & commit files
         run: |
           pip3 install -r requirements.txt
-          python3 unblockchn.py acl
-          cd ./acl/
-          mv pac.txt PAC.txt
-          mv unblockchn.pac.ruleset unblock_pac.ruleset
-          touch test.txt
-          ls -al 
-          pwd
-          git status
+          python3 unblockchn.py acl --acl
+          mv ./acl/china.acl ./output/china.acl
+          echo "This is your current acl files:"
+          ls -al ./output/
           git config --local user.email "am1006@pm.me"
           git config --local user.name "am1006.github.actions"
           git add .
           git commit -m "update pac" || echo "nothing to update"
+          echo "This is your git log:"
           git log --pretty=oneline
 
       # - name: add and commit
