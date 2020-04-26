@@ -23,11 +23,11 @@ jobs:
       - name: commit files
         run: |
           ls -al ./acl/
-          git log --pretty=oneline
           git config --local user.email "am1006@pm.me"
           git config --local user.name "am1006.github.actions"
           git add .
           git commit -m "update pac"
+          git log --pretty=oneline
 
       - name: push changes
         uses: ad-m/github-push-action@master
