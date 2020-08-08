@@ -23,7 +23,7 @@ jobs:
           ls -al
           python3 unblockchn.py acl --pac
           python3 unblockchn.py acl --acl
-          mv ./acl/china.acl ./acl/PAC.txt ./myacl/
+          cp ./acl/china.acl ./acl/PAC.txt ./myacl/
           echo "This is your current acl files:"
           ls -al ./myacl/
 
