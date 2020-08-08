@@ -18,7 +18,9 @@ jobs:
 
       - name: run script & commit files
         run: |
+          pwd
           pip3 install -r requirements.txt
+          ls -al
           python3 unblockchn.py acl --pac
           python3 unblockchn.py acl --acl
           mv ./acl/china.acl ./acl/PAC.txt ./myacl/
