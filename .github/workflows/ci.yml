@@ -16,7 +16,6 @@ jobs:
       - name: setup python
         uses: actions/setup-python@master
 
-      # Remember: docker的每一步是隔离的，不能把run script单独写出来，会被清理掉。
       - name: run script & commit files
         run: |
           pip3 install -r requirements.txt
@@ -25,22 +24,14 @@ jobs:
           mv ./acl/china.acl ./acl/PAC.txt ./myacl/
           echo "This is your current acl files:"
           ls -al ./myacl/
-          git config --local user.email "am1006@pm.me"
-          git config --local user.name "am1006.github.actions"
-          git add .
-          git commit -m "update pac" || echo "nothing to update"
-          echo "This is your git log:"
-          git log --pretty=oneline
 
-      # - name: add and commit
-      #   uses: stefanzweifel/git-auto-commit-action@master
-      #   with:
-      #     commit_massage: Update PAC
-
-      - name: push changes
-        uses: ad-m/github-push-action@master
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          branch: 'pac&acl'
-          github_token: ${{ secrets.ACC_TOKEN }}
-
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./myacl
+          publish_branch: production  # default: gh-pages
+          commit_message: ${{ github.event.head_commit.message }}
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
 
