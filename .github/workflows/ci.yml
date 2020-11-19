@@ -23,8 +23,8 @@ jobs:
           ls -al
           python3 unblockchn.py acl --pac
           python3 unblockchn.py acl --acl
-          python3 unblockchn.py surge -d ./acl/
-          mkdir myacl && cp ./acl/china.acl ./acl/pac.txt ./acl/surge.conf ./myacl/
+          python3 unblockchn.py surge
+          mkdir myacl && cp ./acl/china.acl ./acl/pac.txt ./surge/surge.conf ./myacl/
           echo "This is your current acl & surge files:"
           ls -al ./myacl/
 
