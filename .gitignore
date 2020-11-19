@@ -1,5 +1,6 @@
 # Unblock CHN
 *.tpl
+!surge/surge.conf.tpl
 *.conf
 ipset.rules
 ipset.headless.rules
@@ -13,6 +14,9 @@ config.py
 pac.txt
 unblockchn.acl.ruleset
 unblockchn.pac.ruleset
+
+# Mac OS X
+.DS_Store
 
 # JetBrains
 .idea/
